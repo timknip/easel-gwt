@@ -2,3 +2,15 @@ Easel-GWT
 ======================================
 
 Easel-GWT is a GWT port of EaselJS : http://easeljs.com/
+
+USAGE
+======================================
+Add this to your html:
+<script type="text/javascript" language="javascript" src="<module>/easeljs-min.js"></script>
+
+Where <module> indicates your GWT module name.
+
+In your module.gwt.xml add:
+<inherits name='easeljs.EaselJS'/>
+
+Reference this module as a project or add the jar in the /bin directory to your classpath.
