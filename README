@@ -14,3 +14,87 @@ In your module.gwt.xml add:
 <inherits name='easeljs.EaselJS'/>
 
 Reference this module as a project or add the jar in the /bin directory to your classpath.
+
+EXAMPLE
+======================================
+package com.floorplanner.easeljs.client;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.dom.client.Style.Unit;
+import com.google.gwt.user.client.Timer;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
+
+import easeljs.client.EaselJS;
+import easeljs.client.display.Container;
+import easeljs.client.display.Graphics;
+import easeljs.client.display.Shadow;
+import easeljs.client.display.Shape;
+import easeljs.client.display.Stage;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class EaseljsTest implements EntryPoint {
+	
+	private float angle = 0;
+	
+	/**
+	 * This is the entry point method.
+	 */
+	public void onModuleLoad() {
+		DockLayoutPanel panel = new DockLayoutPanel(Unit.PX);
+		
+		EaselJS easel = new EaselJS(640, 480);
+		
+		panel.add(easel);
+		
+		RootLayoutPanel.get().add(panel);
+		
+		test(easel);
+		
+		RootLayoutPanel.get().animate(500);
+	}
+	
+	private void test(EaselJS easel) {
+		final Stage stage = easel.getStage();
+		Container container = easel.getContainer();
+		final Container center = new Container();
+			
+		Shape shape = new Shape();
+		Graphics graphics = shape.getGraphics();
+		
+		center.addChild(shape);
+		
+		graphics.beginFill("#ff0000")
+			.moveTo(-50, -50)
+			.lineTo( 50, -50)
+			.lineTo( 50,  50)
+			.lineTo(-50,  50)
+			.endFill();
+	
+		shape.cache(-50, -50, 100, 100);
+		
+		final Shape clone = (Shape) shape.clone();
+		clone.setRotation(45);
+		clone.setX(140);
+		clone.setY(140);
+		clone.setShadow(new Shadow("#000000", 20, 20, 10));
+		
+		center.addChild(clone);
+		container.addChild(center);
+		
+		clone.cache(-50, -50, 100, 100);
+		
+		Timer timer = new Timer() {
+			
+			public void run() {
+				center.setRotation(angle);
+				stage.tick();
+				angle++;
+			}
+		};
+		
+		timer.scheduleRepeating(10);
+	}
+}
