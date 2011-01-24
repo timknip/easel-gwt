@@ -1,0 +1,5 @@
+easeljs.client
+easeljs.client.display
+easeljs.client.display.impl
+easeljs.client.geom
+easeljs.client.geom.impl
