@@ -3,7 +3,7 @@ Easel-GWT
 
 Easel-GWT is a GWT port of EaselJS : http://easeljs.com/
 
-NOTE:
+NOTE
 ======================================
 The code is still in alpha and not much tested.
 Hence there might be bugs, problems and performance issues.
@@ -22,7 +22,7 @@ In your module.gwt.xml add:
 
 Reference this module as a project or add the jar in the /bin directory to your classpath.
 
-EXAMPLE
+EXAMPLE http://easel-gwt.appspot.com/
 ======================================
 package com.floorplanner.easeljs.client;
 
