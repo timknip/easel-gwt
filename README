@@ -3,6 +3,13 @@ Easel-GWT
 
 Easel-GWT is a GWT port of EaselJS : http://easeljs.com/
 
+NOTE:
+======================================
+The code is still in alpha and not much tested.
+Hence there might be bugs, problems and performance issues.
+The architecture is still in flux and will probably change in the future.
+So beware!
+
 USAGE
 ======================================
 Add this to your html:
