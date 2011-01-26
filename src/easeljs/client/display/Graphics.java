@@ -1,5 +1,7 @@
 package easeljs.client.display;
 
+import com.google.gwt.user.client.ui.Image;
+
 import easeljs.client.display.impl.GraphicsImpl;
 
 public class Graphics {
@@ -12,6 +14,11 @@ public class Graphics {
 	
 	public Graphics clear() {
 		overlay.clear();
+		return this;
+	}
+	
+	public Graphics beginBitmapFill(Image image) {
+		overlay.beginBitmapFill(image.getElement());
 		return this;
 	}
 	

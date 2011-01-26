@@ -8,6 +8,16 @@ public class GraphicsImpl extends JavaScriptObject {
 	public final native GraphicsImpl clear() /*-{
 		return this.clear();
 	}-*/;
+
+	public final native GraphicsImpl beginBitmapFill(
+			JavaScriptObject image) /*-{
+		return this.beginBitmapFill(image);
+	}-*/;
+	
+	public final native GraphicsImpl beginBitmapFill(
+			JavaScriptObject image, String repetion) /*-{
+		return this.beginBitmapFill(image, repetition);
+	}-*/;
 	
 	public final native GraphicsImpl beginFill(String color) /*-{
 		return this.beginFill(color);
