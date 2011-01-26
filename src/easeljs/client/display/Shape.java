@@ -12,7 +12,7 @@ public class Shape extends DisplayObject {
 		this(ShapeImpl.create());
 	}
 	
-	private Shape(ShapeImpl overlay) {
+	public Shape(ShapeImpl overlay) {
 		this.overlay = this.impl = overlay;
 		GraphicsImpl graphicsImpl =
 			((ShapeImpl)this.overlay).getGraphics();
