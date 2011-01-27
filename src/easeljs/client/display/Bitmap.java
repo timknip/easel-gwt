@@ -10,6 +10,10 @@ public class Bitmap extends DisplayObject {
 
 	private Image image;
 	
+	public Bitmap() {
+		this.overlay = BitmapImpl.create();
+	}
+	
 	public Bitmap(Image image) {
 		this.overlay = BitmapImpl.create(image.getElement());
 		this.image = image;
@@ -38,5 +42,9 @@ public class Bitmap extends DisplayObject {
 	
 	public Image getImage() {
 		return image;
+	}
+	
+	public void setImage(Image image) {
+		((BitmapImpl)overlay).setImage(image.getElement());
 	}
 }

@@ -45,7 +45,7 @@ public class ContainerImpl extends DisplayObjectImpl {
 		return this.mouseChildren;
 	}-*/;
 	
-	public final native DisplayObjectImpl getChildIndex(DisplayObjectImpl child) /*-{
+	public final native int getChildIndex(DisplayObjectImpl child) /*-{
 		return this.getChildIndex(child);
 	}-*/;
 	

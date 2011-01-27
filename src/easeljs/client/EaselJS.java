@@ -36,6 +36,15 @@ public class EaselJS extends Widget implements RequiresResize {
 	}
 	
 	/**
+	 * Gets the canvas element.
+	 * 
+	 * @return
+	 */
+	public Element getCanvasElement() {
+		return canvas;
+	}
+	
+	/**
 	 * Gets the main container.
 	 * 
 	 * @return
@@ -63,7 +72,7 @@ public class EaselJS extends Widget implements RequiresResize {
 		
 		container.setX(width/2);
 		container.setY(height/2);
-		
+	
 		stage.tick();
 	}
 }
