@@ -13,7 +13,8 @@ public class EaselJS extends Widget implements RequiresResize {
 
 	private Stage stage;
 	private Container container;
-
+	private float panX = 0f;
+	private float panY = 0f;
 	private Element canvas;
 	
 	public EaselJS() {
@@ -70,9 +71,25 @@ public class EaselJS extends Widget implements RequiresResize {
 		canvas.setAttribute("width", ""+width);
 		canvas.setAttribute("height", ""+height);
 		
-		container.setX(width/2);
-		container.setY(height/2);
+		container.setX(panX + (width/2));
+		container.setY(panY + (height/2));
 	
 		stage.tick();
+	}
+
+	public float getPanX() {
+		return panX;
+	}
+
+	public void setPanX(float panX) {
+		this.panX = panX;
+	}
+
+	public float getPanY() {
+		return panY;
+	}
+
+	public void setPanY(float panY) {
+		this.panY = panY;
 	}
 }
