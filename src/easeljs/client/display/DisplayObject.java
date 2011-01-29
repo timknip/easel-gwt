@@ -49,6 +49,14 @@ public class DisplayObject {
 		overlay.setID(id);
 	}
 	
+	public boolean getMouseEnabled() {
+		return overlay.getMouseEnabled();
+	}
+	
+	public void setMouseEnable(boolean mouseEnabled) {
+		overlay.setMouseEnabled(mouseEnabled);
+	}
+	
 	public String getName() {
 		return overlay.getName();
 	}
