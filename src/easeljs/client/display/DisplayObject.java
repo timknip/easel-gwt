@@ -53,7 +53,7 @@ public class DisplayObject {
 		return overlay.getMouseEnabled();
 	}
 	
-	public void setMouseEnable(boolean mouseEnabled) {
+	public void setMouseEnabled(boolean mouseEnabled) {
 		overlay.setMouseEnabled(mouseEnabled);
 	}
 	
