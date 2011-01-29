@@ -18,6 +18,19 @@ public class Stage extends Container {
 		overlay = impl = StageImpl.create(canvas);
 	}
 	
+	public void clear() {
+		impl.clear();
+	}
+	
+	public DisplayObject getObjectUnderPoint(float x, float y) {
+		DisplayObjectImpl o = impl.getObjectUnderPoint(x, y);
+		if (o != null) {
+			return new DisplayObject(o);
+		} else {
+			return null;
+		}
+	}
+	
 	public ArrayList<DisplayObject> getObjectsUnderPoint(float x, float y) {
 		ArrayList<DisplayObject> objects = 
 			new ArrayList<DisplayObject>();

@@ -22,6 +22,11 @@ public class Graphics {
 		return this;
 	}
 	
+	public Graphics beginBitmapFill(Image image, String repeat) {
+		overlay.beginBitmapFill(image.getElement(), repeat);
+		return this;
+	}
+	
 	public Graphics beginFill(String color) {
 		overlay.beginFill(color);
 		return this;

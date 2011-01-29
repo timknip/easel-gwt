@@ -15,8 +15,12 @@ public class Bitmap extends DisplayObject {
 	}
 	
 	public Bitmap(Image image) {
-		this.overlay = BitmapImpl.create(image.getElement());
-		this.image = image;
+		if (image == null) {
+			this.overlay = BitmapImpl.create();
+		} else {
+			this.overlay = BitmapImpl.create(image.getElement());
+			this.image = image;
+		}
 	}
 	
 	private Bitmap(BitmapImpl overlay) {
@@ -44,7 +48,11 @@ public class Bitmap extends DisplayObject {
 		return image;
 	}
 	
+	public void setImage(Element canvasOrVideo) {
+		((BitmapImpl)overlay).setImage(canvasOrVideo);
+	}
 	public void setImage(Image image) {
 		((BitmapImpl)overlay).setImage(image.getElement());
+		this.image = image;
 	}
 }

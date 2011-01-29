@@ -15,7 +15,7 @@ public class GraphicsImpl extends JavaScriptObject {
 	}-*/;
 	
 	public final native GraphicsImpl beginBitmapFill(
-			JavaScriptObject image, String repetion) /*-{
+			JavaScriptObject image, String repetition) /*-{
 		return this.beginBitmapFill(image, repetition);
 	}-*/;
 	

@@ -10,8 +10,16 @@ public class StageImpl extends ContainerImpl {
 		return new $wnd.Stage(canvas);
 	}-*/;
 	
+	public final native void clear() /*-{
+		this.clear();
+	}-*/;
+	
 	public final native Element getCanvas() /*-{
 		return this.canvas;
+	}-*/;
+	
+	public final native DisplayObjectImpl getObjectUnderPoint(float x, float y) /*-{
+		return this.getObjectUnderPoint(x, y);
 	}-*/;
 	
 	public final native JsArray<DisplayObjectImpl> getObjectsUnderPoint(float x, float y) /*-{
