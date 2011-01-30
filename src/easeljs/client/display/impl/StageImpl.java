@@ -1,5 +1,6 @@
 package easeljs.client.display.impl;
 
+import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.core.client.JsArray;
 import com.google.gwt.user.client.Element;
 
@@ -16,6 +17,10 @@ public class StageImpl extends ContainerImpl {
 	
 	public final native Element getCanvas() /*-{
 		return this.canvas;
+	}-*/;
+	
+	public final native JavaScriptObject getContext() /*-{
+		return this.canvas.getContext("2d");
 	}-*/;
 	
 	public final native DisplayObjectImpl getObjectUnderPoint(float x, float y) /*-{

@@ -117,7 +117,7 @@ public class DisplayObject {
 		}
 	}
 	
-	public boolean inVisible() {
+	public boolean isVisible() {
 		return overlay.isVisible();
 	}
 	

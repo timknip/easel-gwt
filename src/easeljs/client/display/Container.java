@@ -68,6 +68,9 @@ public class Container extends DisplayObject {
 		}
 	}
 	
+	public int getChildIndex(DisplayObjectImpl child) {
+		return ((ContainerImpl) overlay).getChildIndex(child);
+	}
 	public int getChildIndex(DisplayObject child) {
 		return ((ContainerImpl) overlay).getChildIndex(child.getOverlay());
 	}
