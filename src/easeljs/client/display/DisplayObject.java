@@ -8,6 +8,7 @@ public class DisplayObject {
 
 	protected DisplayObjectImpl overlay;
 	protected Shadow shadow;
+	protected Object userData;
 	
 	public DisplayObject() {
 		overlay = DisplayObjectImpl.create();
@@ -143,5 +144,13 @@ public class DisplayObject {
 	
 	public DisplayObjectImpl getOverlay() {
 		return overlay;
+	}
+
+	public Object getUserData() {
+		return userData;
+	}
+
+	public void setUserData(Object userData) {
+		this.userData = userData;
 	}
 }
