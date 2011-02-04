@@ -12,15 +12,8 @@ So beware!
 
 USAGE
 ======================================
-Add this to your html:
-<script type="text/javascript" language="javascript" src="<module>/easeljs-min.js"></script>
-
-Where <module> indicates your GWT module name.
-
-In your module.gwt.xml add:
-<inherits name='easeljs.EaselJS'/>
-
-Reference this module as a project or add the jar in the /bin directory to your classpath.
+1] Add the jar in the /bin directory to your classpath.
+2] In your module.gwt.xml add: <inherits name='easeljs.EaselJS'/>
 
 EXAMPLE http://easel-gwt.appspot.com/
 ======================================
@@ -105,3 +98,29 @@ public class EaseljsTest implements EntryPoint {
 		timer.scheduleRepeating(10);
 	}
 }
+
+===================================================
+The EaseljsTest.gwt.xml :
+===================================================
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='easeljstest'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name='com.google.gwt.user.theme.standard.Standard'/>
+  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
+  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+	
+  <!-- Other module inherits                                      -->
+  <inherits name='easeljs.EaselJS'/> 
+  
+  <!-- Specify the app entry point class.                         -->
+  <entry-point class='com.floorplanner.easeljs.client.EaseljsTest'/>
+
+  <!-- Specify the paths for translatable code                    -->
+  <source path='client'/>
+
+</module>

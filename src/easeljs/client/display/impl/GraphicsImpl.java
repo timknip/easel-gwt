@@ -1,6 +1,8 @@
 package easeljs.client.display.impl;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.core.client.JsArrayNumber;
+import com.google.gwt.core.client.JsArrayString;
 
 public class GraphicsImpl extends JavaScriptObject {
 	protected GraphicsImpl() {}
@@ -202,6 +204,58 @@ public class GraphicsImpl extends JavaScriptObject {
 	*/
 	public final native GraphicsImpl closePath() /*-{
 		return this.closePath();
+	}-*/;
+	
+	/**
+	* Begins a linear gradient fill defined by the line (x0,y0) to (x1,y1). 
+	* This ends the current subpath. For example, the following code defines 
+	* a black to white vertical gradient ranging from 20px to 120px, and 
+	* draws a square to display it:<br/>
+	* myGraphics.beginLinearGradientFill(["#000","#FFF"], [0,1], 0, 20, 0, 120)
+	*   .drawRect(20,20,120,120);
+	*   
+	* @param colors An array of CSS compatible color values. For example, ["#F00","#00F"] would define a gradient drawing from red to blue.
+	* @param ratios An array of gradient positions which correspond to the colors. For example, [0.1,0.9] would draw the first color to 10% then interpolating to the second color at 90%.
+	* @param x0 The position of the first point defining the line that defines the gradient direction and size.
+	* @param y0 The position of the first point defining the line that defines the gradient direction and size.
+	* @param x1 The position of the second point defining the line that defines the gradient direction and size.
+	* @param y1 The position of the second point defining the line that defines the gradient direction and size.
+	*/
+	public final native GraphicsImpl beginLinearGradientFill(
+			JsArrayString colors, JsArrayNumber ratios,
+			float x0, float y0, float x1, float y1) /*-{
+		return this.beginLinearGradientFill(colors, ratios, x0, y0, x1, y1);
+	}-*/;
+	
+	/**
+	* Begins a radial gradient fill. This ends the current subpath. 
+	* For example, the following code defines a red to blue radial gradient centered 
+	* at (100,100), with a radius of 50, and draws a circle to display it:<br/>
+	* myGraphics.beginRadialGradientFill(["#F00","#00F"], [0,1], 100, 100, 0, 100, 100, 50)
+	* .drawCircle(100, 100, 50);
+	* @param colors An array of CSS compatible color values. For example, ["#F00","#00F"] would define a gradient drawing from red to blue.
+	* @param ratios An array of gradient positions which correspond to the colors. For example, [0.1,0.9] would draw the first color to 10% then interpolating to the second color at 90%.
+	* @param x0 Center position of the inner circle that defines the gradient.
+	* @param y0 Center position of the inner circle that defines the gradient.
+	* @param r0 Radius of the inner circle that defines the gradient.
+	* @param x1 Center position of the outer circle that defines the gradient.
+	* @param y1 Center position of the outer circle that defines the gradient.
+	* @param r1 Radius of the outer circle that defines the gradient.
+	*/
+	public final native GraphicsImpl beginRadialGradientFill(
+			JsArrayString colors, JsArrayNumber ratios,
+			float x0, float y0, float r0,
+			float x1, float y1, float r1
+			) /*-{
+		return this.beginRadialGradientFill(colors, ratios, x0, y0, r0, x1, y1, r1);
+	}-*/;
+	
+	public final native JsArrayNumber getNativeNumberArray(String raw) /*-{
+		return raw;
+	}-*/;
+	
+	public final native JsArrayString getNativeStringArray(String raw) /*-{
+		return raw;
 	}-*/;
 	
 	/**
