@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="easel-gwt" default="build" basedir=".">
+	<property environment="env" />
+	<!-- Arguments to gwtc and devmode targets -->
+	<property name="gwt.args" value="" />
+	<property name="src.dir" value="src" />
+	<property name="class.dir" value="build/classes" />
+
+	<!-- Configure path to GWT SDK -->
+	<property name="gwt.sdk" location="${env.GWT_HOME}" />
+
+	<path id="project.class.path">
+		<pathelement location="${class.dir}" />
+		<pathelement location="${gwt.sdk}/gwt-user.jar" />
+		<fileset dir="${gwt.sdk}" includes="gwt-dev*.jar" />
+	</path>
+
+	<target name="javac" description="Compile java source to bytecode">
+		<mkdir dir="${class.dir}" />
+		<javac srcdir="${src.dir}" includes="**" encoding="utf-8" destdir="${class.dir}" source="1.6" target="1.6" nowarn="true" debug="true" debuglevel="lines,vars,source">
+			<classpath refid="project.class.path" />
+		</javac>
+		<copy todir="${class.dir}">
+			<fileset dir="${src.dir}" />
+		</copy>
+	</target>
+
+	<target name="jar" description="Creates GWT compatible JAR file">
+		<copy todir="${class.dir}">
+			<fileset dir="${src.dir}" />
+		</copy>
+		<mkdir dir="release" />
+		<jar destfile="release/easel-gwt.jar" basedir="${class.dir}" />
+	</target>
+
+	<target name="build" depends="javac,jar" description="Build this project" />
+
+	<target name="clean" description="Cleans this project">
+		<delete dir="${class.dir}" failonerror="false" />
+	</target>
+
+</project>
